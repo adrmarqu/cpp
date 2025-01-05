@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 09:27:10 by adrmarqu          #+#    #+#             */
-/*   Updated: 2025/01/05 10:59:54 by adrmarqu         ###   ########.fr       */
+/*   Created: 2024/12/03 17:48:10 by adrmarqu          #+#    #+#             */
+/*   Updated: 2024/12/03 18:47:33 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <cstdlib>
+#ifndef WEAPON_H
+# define WEAPON_H
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+# include <iostream>
 
-int	main(void)
+class Weapon
 {
-	std::cout << std::endl << "----- New zombie -----" << std::endl << std::endl;
-	Zombie	*z = newZombie("Siri");
-	if (z)
-	{
-		z->announce();
-		delete z;
-	}
+	public:
 
-	std::cout << std::endl << "----- Random chump -----" << std::endl << std::endl;
-	randomChump("Alexa");
+		Weapon();
+		Weapon(std::string type);
+		~Weapon();
 
-	return 0;
-}
+		std::string const	&getType() const;
+		void				setType(std::string type);
+
+	private:
+		
+		std::string	_type;
+};
+
+std::ostream	&operator<<(std::ostream &flux, Weapon const &gun);
+
+#endif

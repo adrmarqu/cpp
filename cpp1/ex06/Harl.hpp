@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 09:27:10 by adrmarqu          #+#    #+#             */
-/*   Updated: 2025/01/05 10:59:54 by adrmarqu         ###   ########.fr       */
+/*   Created: 2025/01/02 15:58:40 by adrmarqu          #+#    #+#             */
+/*   Updated: 2025/01/02 16:02:32 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <cstdlib>
+#ifndef HARL_H
+# define HARL_H
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+# include <iostream>
 
-int	main(void)
+class Harl
 {
-	std::cout << std::endl << "----- New zombie -----" << std::endl << std::endl;
-	Zombie	*z = newZombie("Siri");
-	if (z)
-	{
-		z->announce();
-		delete z;
-	}
+	public:
 
-	std::cout << std::endl << "----- Random chump -----" << std::endl << std::endl;
-	randomChump("Alexa");
+		Harl(void);
+		~Harl(void);
+		
+		void complain(std::string level);
+	
+	private:
+	
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	
 
-	return 0;
-}
+};
+
+#endif

@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 09:27:10 by adrmarqu          #+#    #+#             */
-/*   Updated: 2025/01/05 10:59:54 by adrmarqu         ###   ########.fr       */
+/*   Created: 2024/12/03 17:52:02 by adrmarqu          #+#    #+#             */
+/*   Updated: 2024/12/03 18:43:09 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <cstdlib>
+#ifndef HUMANA_H
+# define HUMANA_H
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+# include "Weapon.hpp"
 
-int	main(void)
+class HumanA
 {
-	std::cout << std::endl << "----- New zombie -----" << std::endl << std::endl;
-	Zombie	*z = newZombie("Siri");
-	if (z)
-	{
-		z->announce();
-		delete z;
-	}
+	public:
+		
+		HumanA(std::string name, Weapon &gun);
+		~HumanA();
 
-	std::cout << std::endl << "----- Random chump -----" << std::endl << std::endl;
-	randomChump("Alexa");
+		void	attack() const;
 
-	return 0;
-}
+	private:
+
+		std::string _name;
+		Weapon		&_gun;
+};
+
+#endif

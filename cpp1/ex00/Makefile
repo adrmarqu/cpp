@@ -6,13 +6,13 @@
 #    By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/10 13:04:35 by adrmarqu          #+#    #+#              #
-#    Updated: 2024/11/02 14:56:00 by adrmarqu         ###   ########.fr        #
+#    Updated: 2025/01/05 10:57:00 by adrmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Zombie
 
-CC = g++
+CC = c++ -fsanitize=address
 RM = rm -rf
 STD = -std=c++98
 CPPFLAGS = -Wall -Wextra -Werror -pedantic

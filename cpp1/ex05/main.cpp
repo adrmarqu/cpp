@@ -5,33 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 09:38:56 by adrmarqu          #+#    #+#             */
-/*   Updated: 2025/01/05 11:07:54 by adrmarqu         ###   ########.fr       */
+/*   Created: 2025/01/02 15:58:30 by adrmarqu          #+#    #+#             */
+/*   Updated: 2025/01/05 11:11:51 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 #include <cstdlib>
 
-Zombie	*zombieHorde(int N, std::string name);
-
-int	main(void)
+int	main(int ac, char **av)
 {
-	int	n = 6;
+	if (ac != 2)
+		return std::cout << "./Harl + level --> (DEBUG, INFO, WARNING, ERROR)" << std::endl, 1;
 
-	if (n < 1)
-		return std::cout << "There are no zombies" << std::endl, 0;
+	Harl	harl;
 
-	std::cout << std::endl << "----- New horde of " << n <<  " zombies -----";
-	std::cout << std::endl << std::endl;
-	
-	Zombie	*horde = zombieHorde(n, "Frederic");
-
-	for (int i = 0; i < n; i++)
-		horde[i].announce();
-	delete [] horde;
-	
-	std::cout << std::endl;
-
+	harl.complain(av[1]);
 	return 0;
 }

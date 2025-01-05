@@ -6,7 +6,7 @@
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:13:50 by adrmarqu          #+#    #+#             */
-/*   Updated: 2024/11/07 09:26:00 by adrmarqu         ###   ########.fr       */
+/*   Updated: 2025/01/05 10:58:26 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 Zombie	*newZombie(std::string name)
 {
-	return (new Zombie(name));
+	return (new(std::nothrow) Zombie(name));
 }

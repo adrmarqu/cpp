@@ -6,21 +6,21 @@
 #    By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/10 13:04:35 by adrmarqu          #+#    #+#              #
-#    Updated: 2025/01/05 11:09:00 by adrmarqu         ###   ########.fr        #
+#    Updated: 2025/01/05 11:25:50 by adrmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie
+NAME = harlFilter
 
 CC = c++ -fsanitize=address
 RM = rm -rf
 STD = -std=c++98
 CPPFLAGS = -Wall -Wextra -Werror -pedantic
 
-MSG_CRT = "Created Zombie"
-MSG_DLT = "Deleted Zombie"
+MSG_CRT = "Created $(NAME)"
+MSG_DLT = "Deleted $(NAME)"
 
-SRC = main.cpp
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CPPFLAGS) $(STD) $(OBJ) -o $(NAME)
 	@echo $(MSG_CRT)
 
-%.o: %.cpp Makefile
+%.o: %.cpp Makefile Harl.hpp
 	@$(CC) $(CPPFLAGS) $(STD) -c $< -o $@
 
 clean:

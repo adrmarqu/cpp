@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 09:27:10 by adrmarqu          #+#    #+#             */
-/*   Updated: 2025/01/05 10:59:54 by adrmarqu         ###   ########.fr       */
+/*   Created: 2024/12/03 17:52:11 by adrmarqu          #+#    #+#             */
+/*   Updated: 2024/12/03 18:48:51 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <cstdlib>
+#include "HumanA.hpp"
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-int	main(void)
+HumanA::HumanA(std::string name, Weapon &gun) : _name(name), _gun(gun)
 {
-	std::cout << std::endl << "----- New zombie -----" << std::endl << std::endl;
-	Zombie	*z = newZombie("Siri");
-	if (z)
-	{
-		z->announce();
-		delete z;
-	}
+	std::cout << "Creation of Human A named: " << _name << std::endl;
+	std::cout << _name << " has a " << _gun << std::endl;
+}
 
-	std::cout << std::endl << "----- Random chump -----" << std::endl << std::endl;
-	randomChump("Alexa");
+HumanA::~HumanA()
+{
+	std::cout << "Destruction of Human A named: " << _name << std::endl;
+}
 
-	return 0;
+void	HumanA::attack() const
+{
+	std::cout << _name << " attacks with their " << _gun << std::endl;
 }
