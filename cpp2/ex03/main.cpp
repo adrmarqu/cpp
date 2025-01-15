@@ -6,7 +6,7 @@
 /*   By: adrmarqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:41:23 by adrmarqu          #+#    #+#             */
-/*   Updated: 2025/01/09 13:39:10 by adrmarqu         ###   ########.fr       */
+/*   Updated: 2025/01/15 12:37:56 by adrmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static float	enterValue(char type)
 	std::cout << "Enter " << type << ": ";
 	std::cin >> var;
 
-	while (std::cin.fail())
+	while (std::cin.fail() && !std::cin.eof())
 	{
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
